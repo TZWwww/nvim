@@ -13,6 +13,17 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require("lazy").setup({
+    {
+        'ojroques/nvim-osc52',
+        config = function()
+          require('osc52').setup({
+            -- 你可以在这里设置插件的选项
+            -- 例如：
+            -- max_length = 1024, -- 最大复制长度
+            -- silent = true,     -- 不显示消息
+          })
+        end,
+    },
 	-- Vscode-like pictograms
 	{
 		"onsails/lspkind.nvim",
@@ -132,10 +143,6 @@ require("nvim-tree").setup {
 }
 
 
+-- require('leap')
 require('leap').create_default_mappings()
-vim.keymap.set('n', 's', function()
-    require('leap').leap{
-        target_windows = require('leap.user').get_focusable_windows()
-    }
-end)
 
